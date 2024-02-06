@@ -33,4 +33,6 @@ separation = Vector2i(8, 8)
 5:3/0 = 0
 
 [resource]
+custom_data_layer_0/name = "walkable"
+custom_data_layer_0/type = 1
 sources/2 = SubResource("TileSetAtlasSource_kf4fj")
