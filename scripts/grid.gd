@@ -9,7 +9,8 @@ func _ready():
 	_init_cells()
 
 func is_available(point: Vector2i):
-	return !astar_grid.is_point_solid(point)
+	var tile_data = get_cell_tile_data(main_layer, point)
+	return tile_data != null
 
 func get_path_points(from: Vector2i, to: Vector2i):
 	var local_path = astar_grid.get_id_path(from, to)

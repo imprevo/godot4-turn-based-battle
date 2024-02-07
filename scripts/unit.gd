@@ -6,6 +6,8 @@ enum State {
 	Move,
 }
 
+signal unit_arrived
+
 var speed = 100
 var path_index = 0
 var path: PackedVector2Array
@@ -21,6 +23,7 @@ func _physics_process(delta):
 func _move():
 	if path_index > path.size() - 1:
 		state = State.Idle
+		unit_arrived.emit()
 		return
 	
 	var target = path[path_index]
