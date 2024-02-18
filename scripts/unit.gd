@@ -1,5 +1,5 @@
-extends CharacterBody2D
 class_name Unit
+extends CharacterBody2D
 
 enum State {
 	Idle,

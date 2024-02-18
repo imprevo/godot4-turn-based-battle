@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://qagvtuqh8o7w"]
+
+[node name="ValidCell" type="ReferenceRect"]
+offset_right = 16.0
+offset_bottom = 16.0
+border_color = Color(0.164706, 0.517647, 1, 1)
+editor_only = false

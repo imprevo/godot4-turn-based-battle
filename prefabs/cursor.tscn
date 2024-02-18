@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0ucir6ylpqn6"]
+
+[ext_resource type="Script" path="res://scripts/cursor.gd" id="1_lghtp"]
+
+[node name="Cursor" type="ReferenceRect"]
+offset_right = 16.0
+offset_bottom = 16.0
+border_color = Color(1, 1, 1, 1)
+editor_only = false
+script = ExtResource("1_lghtp")

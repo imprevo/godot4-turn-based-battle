@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://gnpkhb3y1bjp"]
+[gd_scene load_steps=7 format=3 uid="uid://gnpkhb3y1bjp"]
 
 [ext_resource type="TileSet" uid="uid://w5dbchcje0vj" path="res://scenes/tileset.tres" id="1_aovs6"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_tfoyr"]
 [ext_resource type="Script" path="res://scripts/grid.gd" id="2_xw0l3"]
-[ext_resource type="Texture2D" uid="uid://ypke8dibamxx" path="res://icon.svg" id="3_bpsth"]
-[ext_resource type="Script" path="res://scripts/unit.gd" id="3_laapy"]
+[ext_resource type="PackedScene" uid="uid://d0ucir6ylpqn6" path="res://prefabs/cursor.tscn" id="4_0b5n2"]
+[ext_resource type="Script" path="res://scripts/interactive_cells.gd" id="4_7vbyg"]
+[ext_resource type="PackedScene" uid="uid://b2brx4cqlem8x" path="res://prefabs/unit.tscn" id="6_dw0mf"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_tfoyr")
@@ -18,21 +19,14 @@ script = ExtResource("2_xw0l3")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 
-[node name="ActiveCell" type="ReferenceRect" parent="."]
-offset_right = 16.0
-offset_bottom = 16.0
-border_color = Color(1, 1, 1, 1)
-editor_only = false
+[node name="InteractiveCells" type="Node2D" parent="."]
+script = ExtResource("4_7vbyg")
+
+[node name="Cursor" parent="." instance=ExtResource("4_0b5n2")]
 
 [node name="UnitPath" type="Line2D" parent="."]
 width = 2.0
 
-[node name="Unit" type="CharacterBody2D" parent="."]
-position = Vector2(8, 8)
-script = ExtResource("3_laapy")
-
-[node name="Sprite" type="Sprite2D" parent="Unit"]
-scale = Vector2(0.1, 0.097)
-texture = ExtResource("3_bpsth")
+[node name="Unit" parent="." instance=ExtResource("6_dw0mf")]
 
 [connection signal="unit_arrived" from="Unit" to="." method="_on_unit_arrived"]
